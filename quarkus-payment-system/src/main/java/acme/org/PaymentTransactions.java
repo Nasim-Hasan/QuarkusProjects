@@ -11,14 +11,16 @@ public class PaymentTransactions {
     @GeneratedValue
     private Long id;
     private Long providerid;
+    private String providercountry;
     private double transamount;
     private LocalDateTime curdatetime;
 
     public PaymentTransactions() {
     }
 
-    public PaymentTransactions(Long providerid, double transamount, LocalDateTime curdatetime){
+    public PaymentTransactions(Long providerid, String providercountry,double transamount, LocalDateTime curdatetime){
         this.providerid = providerid;
+        this.providercountry = providercountry;
         this.transamount = transamount;
         this.curdatetime = curdatetime;
     }
@@ -28,6 +30,10 @@ public class PaymentTransactions {
     }
     public Long getProviderid() {
         return providerid;
+    }
+
+    public String getProvidercountry() {
+        return providercountry;
     }
     public double getTransamount() {
         return transamount;
@@ -43,6 +49,9 @@ public class PaymentTransactions {
     }
     public void setProviderid(Long providerid){
         this.providerid = providerid;
+    }
+    public void setProvidercountry(String providercountry){
+        this.providercountry = providercountry;
     }
     public void setTransamount(double transamount){
         this.transamount = transamount;

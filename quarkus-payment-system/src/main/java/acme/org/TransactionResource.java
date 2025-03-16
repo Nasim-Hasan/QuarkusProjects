@@ -25,11 +25,9 @@ public class TransactionResource {
        if(providers.isEmpty()){
            throw new IllegalArgumentException("Invalid provider id:"+provider_id);
        }
-       PaymentTransactions paymentTransactions = new PaymentTransactions();
-       paymentTransactions.setProviderid(provider_id);
-       paymentTransactions.setTransamount(amount);
-       paymentTransactions.setCurdatetime(LocalDateTime.now());
-       return paymenttransactionsrepository.save(paymentTransactions);
+       PaymentProviders paymentProviders = providers.get(0);
+       return paymenttransactionsrepository.save(new PaymentTransactions(provider_id, paymentProviders.
+                                                 getCountry(), amount, LocalDateTime.now()));
     }
 
     @GET
